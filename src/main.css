@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+*[class^="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+}

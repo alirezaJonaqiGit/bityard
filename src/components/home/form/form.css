@@ -1,0 +1,47 @@
+.makeStyles-textField-1 {
+    border: none!important;
+}
+.MuiFilledInput-root {
+    border-radius: .3rem!important;
+    -webkit-border-radius: .3rem!important;
+    -moz-border-radius: .3rem!important;
+    -ms-border-radius: .3rem!important;
+    -o-border-radius: .3rem!important;
+    border: none!important;
+    box-shadow: 0 0 0 0 #ef394800!important;
+    transition: box-shadow .1s linear 0s!important;
+    -webkit-transition: box-shadow .1s linear 0s!important;
+    -moz-transition: box-shadow .1s linear 0s!important;
+    -ms-transition: box-shadow .1s linear 0s!important;
+    -o-transition: box-shadow .1s linear 0s!important;
+}
+.MuiFilledInput-root:focus,
+.MuiFilledInput-root:hover {
+    box-shadow: 0 0 0 .15rem rgb(171, 171, 255)!important;
+}
+
+.MuiFilledInput-input{
+    padding: .5rem 1rem!important;
+    border-bottom: none!important;
+}
+.MuiFilledInput-underline:after {
+    display:none!important;
+}
+.MuiFilledInput-underline:before {
+    display:none!important;
+}
+.submit {
+    border: none;
+    background-color: #0091d2;
+    display: block;
+    width: 100%;
+    line-height: 2.2;
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+    color: #fff;
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
