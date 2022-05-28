@@ -6,6 +6,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Roboto Condensed', sans-serif; */
 }
+*::selection {
+    background-color: #0002!important;
+    color: unset;
+}
+
 * {
     box-sizing: border-box;
 }

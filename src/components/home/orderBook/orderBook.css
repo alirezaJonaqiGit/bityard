@@ -88,7 +88,8 @@
     line-height: 2;
 }
 .orderBook_tableBodyRow .orderBook_tableCell:nth-of-type(1) {
-    color: #dc5656;
+    /* color: #dc5656; */
+    color: #24AE8F;
 }
 
 .currentPriceWrapper {
