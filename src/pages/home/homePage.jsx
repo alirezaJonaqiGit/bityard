@@ -1,5 +1,6 @@
-import Forms from "../../components/home/form/from";
+import Form from "../../components/home/form/from";
 import Nav from "../../components/home/nav";
+import OrderBook from "../../components/home/orderBook/orderBook";
 import './homePage.css';
 
 function HomePage() {
@@ -14,15 +15,15 @@ function HomePage() {
                     </div>
 
                     <article className="col-6 flex-grow-1">
-                        <section className="b"  style={{minHeight: '500px'}}>
+                        <section className="b"  style={{minHeight: '50vh'}}>
                             Indicator
                         </section>
                         <section className="">
-                            <Forms />   
+                            <Form />   
                         </section>
                     </article>
-                    <aside className="col-3 b" style={{maxWidth:'300px',minHeight: '100vh'}}>
-                        0
+                    <aside className="col-3 px-1 border" style={{maxWidth:'300px',minHeight: '100vh', background: '#f8f8f8'}}>
+                        <OrderBook />
                     </aside>
                 </main>
             </div>

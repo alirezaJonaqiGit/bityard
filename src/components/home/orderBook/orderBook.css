@@ -1,0 +1,122 @@
+.mh-50 {
+    /* min-height: 50%; */
+}
+
+.orderBook {
+    /* border: 1px solid red; */
+    padding: .5rem 0;
+}
+
+.orderBook_header {
+    /* border: 1px solid red; */
+    
+}
+
+.orderBook_headerTitle {
+    display: block;
+    font-size: .9rem;
+    font-weight: 600;
+    border-bottom: 1px solid #0002;
+    padding: .5rem 0;
+}
+
+.orderBook_tableWrapper {
+    max-height: 38vh;
+    overflow: auto;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.orderBook_tableWrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.orderBook_tableWrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+.orderBook_tableWrapper::-webkit-scrollbar-thumb {
+    background: #2222;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+/* Handle on hover */
+.orderBook_tableWrapper::-webkit-scrollbar-thumb:hover {
+    background: #5555;
+}
+.orderBook_table {
+    width: 100%;
+}
+
+.orderBook_tableHeadRow {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.orderBook_tableHead {
+    padding: .5rem 0;
+    font-size: .7rem;
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    font-weight: 700;
+    color: #0008;
+    background-color: #f8f8f8;
+}
+
+.orderBook_tableBody {
+    width: 100%;
+    overflow: hidden;
+   
+}
+
+.orderBook_tableBodyRow {
+    display: flex;
+    flex-flow: row nowrap;    
+}
+
+.orderBook_tableCell {
+    flex-basis: 0;
+    flex-grow: 1;
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 2;
+}
+.orderBook_tableBodyRow .orderBook_tableCell:nth-of-type(1) {
+    color: #dc5656;
+}
+
+.currentPriceWrapper {
+    padding: .5rem 0;
+    border: 1px solid #0001;
+    border-right: none;
+    border-left: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.currentPrice {
+    font-weight: 500;
+    display: block;
+}
+.currentPrice::after {
+    content: '≈';
+    margin:0 .5rem;
+}
+
+.approximatePrice {
+    font-size: .8rem;
+    display: block;
+    color: #0008;
+}
+.approximatePrice::after {
+    content: 'usd';
+    text-transform: uppercase;
+    margin-left: .5rem;
+}
