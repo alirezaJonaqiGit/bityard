@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import './form.css'
+import FormField from "./formFields/formField";
+import { useState } from "react";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,67 +22,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Forms() {
-    // <div className=""> </div>
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const buyBTCSubmit = (data) => {
-        console.log(data);
-    };
-    const sellBTCSubmit = (data) => {
-        console.log(data)
-    };
+    // set Current Price
+    const [price, setPrice] = useState(0);
     const classes = useStyles();
 
+    
     return ( 
         <>
             <div className="formsWrapper container-fluid">
                 <div className="row">
-                    <div className="col-6 px-2 b">
 
+                    <div className="col-6 px-2 b">
                         <h4 className={classes.formLabel}>Buy BTC</h4>
-                        <form className="px-2" onSubmit={handleSubmit(buyBTCSubmit)}>
-                            <div className="d-flex flex-nowrap">
-                                <span style={{width: '80px',marginRight: '1rem', fontWeight: 'bold'}} className="d-block align-self-center" >
-                                    Price:
-                                </span>
-                                <TextField className={classes.textField} {...register("buyPrice")}  id="outlined-basic" variant="filled" />
-                            </div>
-                            
-                            <div className="d-flex flex-nowrap">
-                                <span style={{width: '80px',marginRight: '1rem', fontWeight: 'bold'}} className="d-block align-self-center" >
-                                    Amount:
-                                </span>
-                                <TextField className={classes.textField} {...register("buyAmount")} id="outlined-basic" variant="filled" />
-                            </div>
-
-                            <input className="submit" type="submit" value='Buy BTC' />
-                        </form>
-
-
+                        <FormField currentPrice={price} status={'Buy'} />
                     </div>
+
                     <div className="col-6 px-2 b">
-                        
-                    <h4 style={{color: '#fd374b'}} className={classes.formLabel}>Sell BTC</h4>
-                        <form className="px-2" onSubmit={handleSubmit(sellBTCSubmit)}>
-                            <div className="d-flex flex-nowrap">
-                                <span style={{width: '80px',marginRight: '1rem', fontWeight: 'bold'}} className="d-block align-self-center" >
-                                    Price:
-                                </span>
-                                <TextField className={classes.textField}  {...register("sellPrice")} id="outlined-basic" variant="filled" />
-                            </div>
-                            
-                            <div className="d-flex flex-nowrap">
-                                <span style={{width: '80px',marginRight: '1rem', fontWeight: 'bold'}} className="d-block align-self-center" >
-                                    Amount:
-                                </span>
-                                <TextField className={classes.textField} {...register("sellAmount")} id="" variant="filled" />
-                            </div>
-
-                            <input className="submit" type="submit" value='Sell BTC' />
-                        </form>
-
-
+                        <h4 style={{ color: '#fd374b' }} className={classes.formLabel}>Sell BTC</h4>
+                        <FormField currentPrice={price} status={'Sell'} />
                     </div>
+                    
                 </div>
             </div>
         </>
