@@ -1,23 +1,41 @@
 import HomePage from "./pages/home/homePage";
-import { useContext, useEffect, useState, createContext } from "react";
+import { useState, useEffect } from "react";
+import { Context } from "./components/context/context";
+import { io, Socket } from "socket.io-client";
+
 
 function App() {
 
   // State:
-  let [state, setSate] = useState(true);
+  let [state, setState] = useState({asks: [], bids: []});
+  
 
-  // Context:
-  const PricesContext = createContext();
-
+  // const socket = io.connect('http://192.168.115.46:3000');
   useEffect(() => {
-    
+
+    const newSocket = io("http://192.168.115.46:3000", {
+      cors: {
+        withCredentials: true,
+        extraHeaders: {
+          "Access-Control-Allow-Origin": "192.168.115.161",
+        },
+        origin: '*'
+      }
+    });
+    newSocket.on('BTC-USDT', (e) => {
+      
+      let newState = Object.assign({...state}, e.data);
+      setState(newState);
+      console.log(e)
+    });
+
   }, []);
 
   return (
     <>
-      <PricesContext.Provider value={state}>
+      <Context.Provider value={{state, setState}}>
         <HomePage />
-      </PricesContext.Provider>
+      </Context.Provider>
     </>
   );
 }

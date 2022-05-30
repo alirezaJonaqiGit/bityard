@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 // import './form.css'
 import { useEffect, useRef, useState  } from 'react';
+import axios from "axios";
+import ControlledOpenSelect from '../select/select';
 
 const useStyles = makeStyles((theme) => ({
     textField: {
@@ -25,31 +27,51 @@ function FormFields(props) {
     // Hook form
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     
+
+    // send request to server
+    // body sample: 
+    // {
+    //     "pair":"BTC-USDT",
+    //     "type":"limit",
+    //     "side":"bid",
+    //     "amount":"0.056",
+    //     "price":54000
+    // }
+
+    const sendXHR = (body) => {
+        let request = axios.post('http://192.168.115.46:3000/orders', body)
+        request.then((response) => {
+            console.log(response)
+        });
+    }
+
+
     // handle Submit
     const submitForm = (data) => {
-        data.price = props.currentPrice.toString();
-        data.type = props.status;
-        console.log(data);
+
+        // get the side from props
+        data.side = props.status;
+        console.log(data)
+        sendXHR({...data, type: 'limit', pair: 'BTC-USDT'});
     };
 
     // classess
     const classes = useStyles();
-    
 
     const PriceTextField = useRef();
     const AmountTextField = useRef();
-    // on component Update => empty fields
-    useEffect(() => {
-    });
+
+
 
     return ( 
         <>
             <form className="px-2" onSubmit={handleSubmit(submitForm)}>
+                {/* <ControlledOpenSelect {...register(`type`)} /> */}
                 <div className="d-flex flex-nowrap">
                     <span style={{ width: '80px', marginRight: '1rem', fontWeight: 'bold' }} className="d-block align-self-center" >
                         Price:
                     </span>
-                    <TextField ref={PriceTextField} value={props.currentPrice} className={classes.textField} {...register(`price`)} id="outlined-basic" variant="filled" />
+                    <TextField defaultValue={0} ref={PriceTextField} className={classes.textField} {...register(`price`)} id="outlined-basic" variant="filled" />
                 </div>
 
                 <div className="d-flex flex-nowrap">
@@ -59,7 +81,7 @@ function FormFields(props) {
                     <TextField defaultValue={0} ref={AmountTextField} className={classes.textField} {...register(`amount`)} id="outlined-basic" variant="filled" />
                 </div>
 
-                <input className="submit" type="submit" value={`${props.status} BTC`} />
+                <input className="submit" type="submit" value={`${props.status === 'ask' ? 'Buy' : 'Sell'} BTC`} />
             </form>  
         </>
     );

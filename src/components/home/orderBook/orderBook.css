@@ -21,7 +21,9 @@
 }
 
 .orderBook_tableWrapper {
-    max-height: 38vh;
+    height: 38vh;
+    max-height: 250px;
+    min-height: 150px;
     overflow: auto;
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -88,8 +90,10 @@
     line-height: 2;
 }
 .orderBook_tableBodyRow .orderBook_tableCell:nth-of-type(1) {
-    /* color: #dc5656; */
     color: #24AE8F;
+}
+.orderBook_tableBodyRow .bids {
+    color: #dc5656!important;
 }
 
 .currentPriceWrapper {

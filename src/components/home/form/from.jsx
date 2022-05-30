@@ -35,12 +35,12 @@ function Forms() {
 
                     <div className="col-6 px-2 b">
                         <h4 className={classes.formLabel}>Buy BTC</h4>
-                        <FormField currentPrice={price} status={'Buy'} />
+                        <FormField currentPrice={price} status={'ask'} />
                     </div>
 
                     <div className="col-6 px-2 b">
                         <h4 style={{ color: '#fd374b' }} className={classes.formLabel}>Sell BTC</h4>
-                        <FormField currentPrice={price} status={'Sell'} />
+                        <FormField currentPrice={price} status={'bid'} />
                     </div>
                     
                 </div>

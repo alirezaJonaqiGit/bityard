@@ -1,7 +1,10 @@
-import './orderBook.css';
+import { Context } from '../../context/context';
 import OrderBookTable from './orderBookTable/orderBookTable';
+import { useContext } from 'react';
+import './orderBook.css';
 
 function OrderBook() {
+    const context = useContext(Context);
     return ( 
         <>
             <div className="orderBook mh-50">
@@ -9,14 +12,14 @@ function OrderBook() {
                 <header className="px-2 orderBook_header">
                     <strong className="orderBook_headerTitle">order book</strong>
                     <div className='orderBook_tableHeadRow'>
-                        <th className="orderBook_tableHead">Price(USDT)</th>
-                        <th className="orderBook_tableHead">Amount(BTC)</th>
-                        <th className="orderBook_tableHead">total(BTC)</th>
+                        <span className="orderBook_tableHead">Price(USDT)</span>
+                        <span className="orderBook_tableHead">Amount(BTC)</span>
+                        <span className="orderBook_tableHead">total(BTC)</span>
                     </div>
                 </header>
 
                 <section className="px-2 orderBook_tableWrapper">
-                    <OrderBookTable />
+                    <OrderBookTable type="asks" data={context.state.asks} />
                 </section>
 
                 <div className="currentPriceWrapper px-2">
@@ -24,8 +27,8 @@ function OrderBook() {
                     <span className='approximatePrice'>28840.84</span>
                 </div>
 
-                <section className="px-2 orderBook_tableWrapper">
-                    <OrderBookTable />
+                <section  className="px-2 orderBook_tableWrapper">
+                    <OrderBookTable type="bids" data={context.state.bids} />
                 </section>
 
 
