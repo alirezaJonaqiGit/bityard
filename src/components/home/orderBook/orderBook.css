@@ -4,7 +4,7 @@
 
 .orderBook {
     /* border: 1px solid red; */
-    padding: .5rem 0;
+    padding: .5rem 0 0;
 }
 
 .orderBook_header {
@@ -22,7 +22,7 @@
 
 .orderBook_tableWrapper {
     height: 38vh;
-    max-height: 250px;
+    max-height: 150px;
     min-height: 150px;
     overflow: auto;
     font-family: 'Roboto Condensed', sans-serif;
@@ -58,6 +58,7 @@
 .orderBook_tableHeadRow {
     display: flex;
     flex-flow: row nowrap;
+    background-color: transparent;
 }
 
 .orderBook_tableHead {
@@ -68,7 +69,7 @@
     flex-grow: 1;
     font-weight: 700;
     color: #0008;
-    background-color: #f8f8f8;
+    background-color: transparent;
 }
 
 .orderBook_tableBody {

@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 // import './form.css'
 import { useEffect, useRef, useState  } from 'react';
 import axios from "axios";
-import ControlledOpenSelect from '../select/select';
 
 const useStyles = makeStyles((theme) => ({
     textField: {
@@ -66,7 +65,7 @@ function FormFields(props) {
     return ( 
         <>
             <form className="px-2" onSubmit={handleSubmit(submitForm)}>
-                {/* <ControlledOpenSelect {...register(`type`)} /> */}
+        
                 <div className="d-flex flex-nowrap">
                     <span style={{ width: '80px', marginRight: '1rem', fontWeight: 'bold' }} className="d-block align-self-center" >
                         Price:

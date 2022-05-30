@@ -5,6 +5,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Roboto Condensed', sans-serif; */
+    background-color: #f8f8f8;
 }
 *::selection {
     background-color: #0002!important;
@@ -13,8 +14,17 @@ body {
 
 * {
     box-sizing: border-box;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 *[class^="col-"] {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0!important;
+} 
+ .container, .container-fluid {
+    padding: 0!important;
 }
+.row {
+    padding: 0 .5rem!important;
+    margin: 0!important;
+} 

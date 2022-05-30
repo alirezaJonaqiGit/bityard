@@ -31,7 +31,7 @@ function OrderBook() {
                     <OrderBookTable type="bids" data={context.state.bids} />
                 </section>
 
-
+                <div className="py-1 px-2" style={{fontSize: '.8rem', color: '#333'}}>1 decimal</div>
             </div>
         </>
     );
