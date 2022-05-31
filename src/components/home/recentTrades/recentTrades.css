@@ -1,0 +1,82 @@
+.MuiButtonBase-root.MuiTab-root.Mui-selected {
+    color: #24AE8F;
+}
+.PrivateTabIndicator-colorPrimary-3 {
+    background-color: transparent!important;
+}
+.MuiPaper-elevation4 {
+    box-shadow: none!important;
+    background-color: transparent!important;
+    border-bottom: 1px solid #0001;
+}
+.MuiTabs-indicator {
+    background-color: transparent!important;
+}
+.MuiTab-root {
+    min-width: 20px!important;
+    max-width: 50%!important;
+    font-size: .7rem!important;
+    white-space: nowrap!important;
+    padding: .5rem 0!important ;
+    flex-grow: 1!important;
+    font-weight: 600!important;
+    font-family: 'Montserrat', sans-serif!important;
+    min-height: 30px!important;
+}
+.MuiTabs-root {
+    min-height: 30px!important;
+}
+.recentTradesListWrapper {
+    /* border: 1px solid red; */
+    max-height: 100%;
+    overflow: hidden;
+}
+.recentTradesListTable {
+    /* border: 1px solid red; */
+    width: 100%;
+    max-height: 350px!important;
+    overflow: auto;
+    display: block;
+    padding: 0;
+}
+
+.recentTradesListTable::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.recentTradesListTable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+.recentTradesListTable::-webkit-scrollbar-thumb {
+    background: #2222;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+/* Handle on hover */
+.recentTradesListTable::-webkit-scrollbar-thumb:hover {
+    background: #5555;
+}
+.recentTradesListHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: .5rem;
+}
+.recentTradesListHeaderLabel {
+    flex-basis: 0;
+    flex-grow: 1;
+    font-family: 'Montserrat', sans-serif!important;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: .75rem;
+    color: #0008;
+    display: block;
+}
+
+

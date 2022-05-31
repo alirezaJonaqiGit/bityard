@@ -5,35 +5,49 @@ import { io, Socket } from "socket.io-client";
 
 
 function App() {
+  // States:
+  let [orderBook, setOrderBook] = useState({ asks: [], bids: [] });
+  let [recentTrades, setRecentTrades] = useState({ data: [] });
 
-  // State:
-  let [state, setState] = useState({asks: [], bids: []});
-  
+  // context value:
+  const contextValue = {
+    orderBook,
+    recentTrades,
+  };
 
-  // const socket = io.connect('http://192.168.115.46:3000');
   useEffect(() => {
-
     const newSocket = io("http://192.168.115.46:3000", {
       cors: {
         withCredentials: true,
         extraHeaders: {
           "Access-Control-Allow-Origin": "192.168.115.161",
         },
-        origin: '*'
-      }
-    });
-    newSocket.on('BTC-USDT', (e) => {
-      
-      let newState = Object.assign({...state}, e.data);
-      setState(newState);
-      console.log(e)
+        origin: "*",
+      },
     });
 
+    newSocket.on("BTC-USDT", (e) => {
+      let newState = Object.assign({ ...orderBook }, e.data);
+      setOrderBook(newState);
+      console.log(e);
+    });
+
+    newSocket.on("trade", (e) => {
+      let newRecentTrades = { ...recentTrades };
+
+      if (newRecentTrades.data.length >= 200) {
+        newRecentTrades.data.pop();
+      }
+
+      newRecentTrades.data.unshift(e);
+      setRecentTrades(newRecentTrades);
+      console.count('trade')
+    });
   }, []);
 
   return (
     <>
-      <Context.Provider value={{state, setState}}>
+      <Context.Provider value={contextValue}>
         <HomePage />
       </Context.Provider>
     </>

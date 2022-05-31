@@ -40,7 +40,7 @@ function FormFields(props) {
     const sendXHR = (body) => {
         let request = axios.post('http://192.168.115.46:3000/orders', body)
         request.then((response) => {
-            console.log(response)
+            // console.log(response)
         });
     }
 
@@ -50,7 +50,7 @@ function FormFields(props) {
 
         // get the side from props
         data.side = props.status;
-        console.log(data)
+        // console.log(data)
         sendXHR({...data, type: 'limit', pair: 'BTC-USDT'});
     };
 
@@ -61,7 +61,6 @@ function FormFields(props) {
     const AmountTextField = useRef();
 
 
-
     return ( 
         <>
             <form className="px-2" onSubmit={handleSubmit(submitForm)}>
@@ -70,14 +69,14 @@ function FormFields(props) {
                     <span style={{ width: '80px', marginRight: '1rem', fontWeight: 'bold' }} className="d-block align-self-center" >
                         Price:
                     </span>
-                    <TextField defaultValue={0} ref={PriceTextField} className={classes.textField} {...register(`price`)} id="outlined-basic" variant="filled" />
+                    <TextField defaultValue={50000} ref={PriceTextField} className={classes.textField} {...register(`price`)} id="outlined-basic" variant="filled" />
                 </div>
 
                 <div className="d-flex flex-nowrap">
                     <span style={{ width: '80px', marginRight: '1rem', fontWeight: 'bold' }} className="d-block align-self-center" >
                         Amount:
                     </span>
-                    <TextField defaultValue={0} ref={AmountTextField} className={classes.textField} {...register(`amount`)} id="outlined-basic" variant="filled" />
+                    <TextField defaultValue={''} placeholder={'amount'} ref={AmountTextField} className={classes.textField} {...register(`amount`)} id="outlined-basic" variant="filled" />
                 </div>
 
                 <input className="submit" type="submit" value={`${props.status === 'ask' ? 'Buy' : 'Sell'} BTC`} />

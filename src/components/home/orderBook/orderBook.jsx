@@ -18,8 +18,8 @@ function OrderBook() {
                     </div>
                 </header>
 
-                <section className="px-2 orderBook_tableWrapper">
-                    <OrderBookTable type="asks" data={context.state.asks} />
+                <section className="orderBook_tableWrapper">
+                    <OrderBookTable type="asks" data={context.orderBook.asks} />
                 </section>
 
                 <div className="currentPriceWrapper px-2">
@@ -27,8 +27,8 @@ function OrderBook() {
                     <span className='approximatePrice'>28840.84</span>
                 </div>
 
-                <section  className="px-2 orderBook_tableWrapper">
-                    <OrderBookTable type="bids" data={context.state.bids} />
+                <section  className=" orderBook_tableWrapper">
+                    <OrderBookTable type="bids" data={context.orderBook.bids} />
                 </section>
 
                 <div className="py-1 px-2" style={{fontSize: '.8rem', color: '#333'}}>1 decimal</div>

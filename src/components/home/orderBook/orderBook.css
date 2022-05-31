@@ -4,7 +4,7 @@
 
 .orderBook {
     /* border: 1px solid red; */
-    padding: .5rem 0 0;
+    padding: 0;
 }
 
 .orderBook_header {
@@ -53,12 +53,14 @@
 }
 .orderBook_table {
     width: 100%;
+    /* border: 1px solid red; */
 }
 
 .orderBook_tableHeadRow {
     display: flex;
     flex-flow: row nowrap;
     background-color: transparent;
+
 }
 
 .orderBook_tableHead {
@@ -81,6 +83,12 @@
 .orderBook_tableBodyRow {
     display: flex;
     flex-flow: row nowrap;    
+    cursor: pointer;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+.orderBook_tableBodyRow:hover {
+    background-color: #2221;
 }
 
 .orderBook_tableCell {

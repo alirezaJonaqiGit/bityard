@@ -1,10 +1,11 @@
 import Form from "../../components/home/form/from";
-import Nav from "../../components/home/nav";
+// import Nav from "../../components/home/nav";
 import OrderBook from "../../components/home/orderBook/orderBook";
 import './homePage.css';
 import { useContext } from "react";
 import { Context } from "../../components/context/context";
-import data from "../../data";
+// import data from "../../data";
+import RecentTrades from "../../components/home/recentTrades/recentTrades";
 
 function HomePage() {
     const context = useContext(Context);
@@ -45,7 +46,9 @@ function HomePage() {
 
                   <div className="col-6" style={{ maxWidth: "300px" }}>
                     <div className="h-100" style={{paddingLeft: '.5rem'}}>
-                      <aside className="element-spot-quote h-100 bg-white border">Recent Trades</aside>
+                      <aside className="element-spot-quote h-100 bg-white border" style={{maxHeight: '440.583px'}}>
+                        <RecentTrades />                        
+                      </aside>
                     </div>
                   </div>
                 </div>
