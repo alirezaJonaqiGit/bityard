@@ -2,6 +2,7 @@ import HomePage from "./pages/home/homePage";
 import { useState, useEffect } from "react";
 import { Context } from "./components/context/context";
 import { io, Socket } from "socket.io-client";
+// import { Main } from "./components/main";
 
 
 function App() {
@@ -38,10 +39,10 @@ function App() {
       if (newRecentTrades.data.length >= 200) {
         newRecentTrades.data.pop();
       }
-
-      newRecentTrades.data.unshift(e);
+      if (!(newRecentTrades.data.includes(e))) {
+        newRecentTrades.data.unshift(e);
+      }
       setRecentTrades(newRecentTrades);
-      console.count('trade')
     });
   }, []);
 
@@ -49,6 +50,7 @@ function App() {
     <>
       <Context.Provider value={contextValue}>
         <HomePage />
+        {/* <Main /> */}
       </Context.Provider>
     </>
   );

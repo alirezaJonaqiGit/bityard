@@ -30,7 +30,7 @@ function HomePage() {
               {/*  */}
             </article>
 
-            <div className="col-6" style={{ maxWidth: "550px" }}>
+            <div className="col-lg-6" style={{ maxWidth: "550px" }}>
               <div className="container-fluid px-3">
                 <div className="row">
                   <aside
