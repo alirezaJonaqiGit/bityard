@@ -5,6 +5,7 @@ import './orderBook.css';
 
 function OrderBook() {
     const context = useContext(Context);
+    
     return ( 
         <>
             <div className="orderBook mh-50">
@@ -23,7 +24,7 @@ function OrderBook() {
                 </section>
 
                 <div className="currentPriceWrapper px-2">
-                    <span className='currentPrice'>28899.8</span>
+                    <span className='currentPrice'>{context.recentTrades.lastTrade.matchedPrice}</span>
                     <span className='approximatePrice'>28840.84</span>
                 </div>
 

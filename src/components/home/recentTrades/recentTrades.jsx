@@ -27,6 +27,7 @@ TabPanel.propTypes = {
       flexGrow: 1,
       width: '100%',
       backgroundColor: theme.palette.background.paper,
+      padding: '0'
     }
   }));
   
@@ -56,7 +57,7 @@ function RecentTrades () {
             </Tabs>
           </AppBar>
           <TabPanel value={value} index={0}>
-            <div className="recentTradesListWrapper">
+            <div className="recentTradesListWrapper p-0">
 
               <header className='recentTradesListHeader'>
                 <span className="recentTradesListHeaderLabel">price</span>

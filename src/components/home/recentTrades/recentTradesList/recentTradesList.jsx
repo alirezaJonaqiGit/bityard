@@ -23,7 +23,7 @@ function RecentTradesList() {
                     (trade.price);
                     return (
                         <li className="recentTradesListItem" key={i}>
-                            <span className={`recentTradesListItem justify-content-start recentTradesListItemPrice  ${trade.side}`} >{price.toLocaleString()}</span>
+                            <span className={`recentTradesListItem justify-content-start recentTradesListItemPrice  ${trade.side}`} >{price}</span>
                             <span className="recentTradesListItem " >{trade.amount}</span>
                             <span className="recentTradesListItem " >{convertMsToTime(trade.timestamp)}</span>
                         </li>

@@ -28,3 +28,6 @@ body {
     padding: 0 .5rem!important;
     margin: 0!important;
 } 
+.MuiBox-root[class*="MuiBox-root-"] {
+    padding: 0!important;
+}

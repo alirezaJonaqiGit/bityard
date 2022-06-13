@@ -8,7 +8,7 @@ import { io, Socket } from "socket.io-client";
 function App() {
   // States:
   let [orderBook, setOrderBook] = useState({ asks: [], bids: [] });
-  let [recentTrades, setRecentTrades] = useState({ data: [] });
+  let [recentTrades, setRecentTrades] = useState({ data: [], lastTrade: {} });
 
   // context value:
   const contextValue = {
@@ -31,11 +31,12 @@ function App() {
     newSocket.on("BTC-USDT", (e) => {
       let newState = Object.assign({ ...orderBook }, e.data);
       setOrderBook(newState);
-      console.log(e)
     });
 
     newSocket.on("BTC-USDT/trade", (e) => {
       let newRecentTrades = { ...recentTrades };
+      newRecentTrades.lastTrade = e;
+      console.log(e);
 
       if (newRecentTrades.data.length >= 200) {
         newRecentTrades.data.pop();
@@ -51,10 +52,25 @@ function App() {
     <>
       <Context.Provider value={contextValue}>
         <HomePage />
-        {/* <Main /> */}
       </Context.Provider>
     </>
   );
 }
 
 export default App;
+
+/*
+amount: 1
+from: "req.user._id.toString()"
+matchedOrderType: "limit"
+matchedPrice: 0.0001
+order: "0735ca2e-5845-43ae-8509-ffe0eb67d81f"
+orderType: "limit"
+pair: "BTC-USDT"
+price: 0.0001
+side: "bid"
+state: "done"
+timestamp: 1655098722529
+to: "req.user._id.toString()"
+totalTransferredMoney: 0.0001
+*/
