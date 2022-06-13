@@ -19,8 +19,7 @@ function RecentTradesList() {
         <>
             {
                 context.recentTrades.data.map((trade, i) => {
-                    let price = Number
-                    (trade.price);
+                    let price = Number (trade.matchedPrice);
                     return (
                         <li className="recentTradesListItem" key={i}>
                             <span className={`recentTradesListItem justify-content-start recentTradesListItemPrice  ${trade.side}`} >{price}</span>
