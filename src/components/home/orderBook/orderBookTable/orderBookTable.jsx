@@ -1,5 +1,3 @@
-import { useContext } from "react";
-
 function OrderBookTable(props) {
   const ame = (array) => {
     let x = Number(array[0]) * Number(array[1]);

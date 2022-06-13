@@ -38,16 +38,18 @@ function FormFields(props) {
     // }
 
     const sendXHR = (body) => {
-        let request = axios.post('http://192.168.115.46:3000/orders', body)
-        request.then((response) => {
-            // console.log(response)
-        });
+        let request = axios.post('http://192.168.115.57:3000/orders', body)
+        
+        // we dont need response, listening to socket 
+        // request.then((response) => {
+        
+        // });
     }
 
 
     // handle Submit
     const submitForm = (data) => {
-
+        
         // get the side from props
         data.side = props.status;
         // console.log(data)

@@ -17,7 +17,8 @@ function App() {
   };
 
   useEffect(() => {
-    const newSocket = io("http://192.168.115.46:3000", {
+
+    const newSocket = io("http://192.168.115.57:3000", {
       cors: {
         withCredentials: true,
         extraHeaders: {
@@ -30,10 +31,10 @@ function App() {
     newSocket.on("BTC-USDT", (e) => {
       let newState = Object.assign({ ...orderBook }, e.data);
       setOrderBook(newState);
-      console.log(e);
+      console.log(e)
     });
 
-    newSocket.on("trade", (e) => {
+    newSocket.on("BTC-USDT/trade", (e) => {
       let newRecentTrades = { ...recentTrades };
 
       if (newRecentTrades.data.length >= 200) {
